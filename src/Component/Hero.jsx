@@ -6,6 +6,7 @@ import Plans from './Plans'
 import Testimonials from './Testimonials'
 import Contact from './Contact'
 import FAQ from './FAQ'
+import Technologies from './Technologies'
 
 const Hero = () => {
   return (
@@ -14,6 +15,7 @@ const Hero = () => {
       <About /> 
       <Services />
       <Plans />
+      <Technologies/>
       <Testimonials />
       <Contact />
       <FAQ />
@@ -22,3 +24,4 @@ const Hero = () => {
 }
 
 export default Hero
+//#012c56 blue color
