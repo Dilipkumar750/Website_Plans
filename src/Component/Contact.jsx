@@ -1,6 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  // Handle form field changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Replace with your WhatsApp number (Format: CountryCode + Number, no spaces)
+    const whatsappNumber = "+91 9566794685"; // Example: India +91 9566873364
+
+    // Construct the WhatsApp message
+    const message = `Hello, I'm interested in your services.
+    
+    🔹 Name: ${formData.name}
+    🔹 Email: ${formData.email}
+    🔹 Message: ${formData.message}
+    
+    Please get in touch with me.`;
+
+    // Encode message for URL
+    const encodedMessage = encodeURIComponent(message);
+
+    // Create WhatsApp URL
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+
+    // Open WhatsApp chat
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <section className="bg-blue-50 dark:bg-slate-800" id="contact">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
@@ -25,7 +62,6 @@ const Contact = () => {
                 We specialize in modern, responsive web development to help businesses grow online.
               </p>
               <ul className="space-y-6">
-                {/* Address */}
                 <li className="flex">
                   <div className="flex h-10 w-10 items-center justify-center rounded bg-blue-900 text-gray-50">
                     📍
@@ -35,7 +71,6 @@ const Contact = () => {
                     <p className="text-gray-600 dark:text-slate-400">25, Lakshmipuram, 4th Street, Peelamedu, Coimbatore</p>
                   </div>
                 </li>
-                {/* Phone & Email */}
                 <li className="flex">
                   <div className="flex h-10 w-10 items-center justify-center rounded bg-blue-900 text-gray-50">
                     📞
@@ -46,7 +81,6 @@ const Contact = () => {
                     <p className="text-gray-600 dark:text-slate-400">Email: gessdemn@gmail.com</p>
                   </div>
                 </li>
-                {/* Working Hours */}
                 <li className="flex">
                   <div className="flex h-10 w-10 items-center justify-center rounded bg-blue-900 text-gray-50">
                     ⏰
@@ -63,10 +97,9 @@ const Contact = () => {
             {/* Contact Form Section */}
             <div className="card h-fit max-w-6xl p-5 md:p-12 bg-white shadow-lg rounded-lg">
               <h2 className="mb-4 text-2xl font-bold dark:text-black">Get Your Website Today!</h2>
-              <form id="contactForm">
+              <form onSubmit={handleSubmit}>
                 <div className="mb-6">
                   <div className="space-y-4">
-                    {/* Name Field */}
                     <div>
                       <label htmlFor="name" className="pb-1 text-xs uppercase tracking-wider text-gray-700">
                         Your Name
@@ -78,9 +111,11 @@ const Contact = () => {
                         placeholder="Your name"
                         className="w-full rounded-md border border-gray-400 py-2 px-3 shadow-md dark:text-gray-900"
                         name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
                       />
                     </div>
-                    {/* Email Field */}
                     <div>
                       <label htmlFor="email" className="pb-1 text-xs uppercase tracking-wider text-gray-700">
                         Email Address
@@ -92,10 +127,12 @@ const Contact = () => {
                         placeholder="Your email address"
                         className="w-full rounded-md border border-gray-400 py-2 px-3 shadow-md dark:text-gray-900"
                         name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
                       />
                     </div>
                   </div>
-                  {/* Message Field */}
                   <div className="mt-4">
                     <label htmlFor="message" className="pb-1 text-xs uppercase tracking-wider text-gray-700">
                       Your Message
@@ -106,16 +143,18 @@ const Contact = () => {
                       rows="5"
                       placeholder="Tell us about your project..."
                       className="w-full rounded-md border border-gray-400 py-2 px-3 shadow-md dark:text-gray-900"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
                     ></textarea>
                   </div>
                 </div>
-                {/* Submit Button */}
                 <div className="text-center">
                   <button
                     type="submit"
                     className="w-full bg-blue-800 text-white px-6 py-3 font-medium rounded-md hover:bg-blue-900 transition duration-300"
                   >
-                    Get Started Now
+                    Get Started Now (WhatsApp)
                   </button>
                 </div>
               </form>
