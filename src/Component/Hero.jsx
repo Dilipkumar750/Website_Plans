@@ -7,6 +7,7 @@ import Testimonials from './Testimonials'
 import Contact from './Contact'
 import FAQ from './FAQ'
 import Technologies from './Technologies'
+import Choose from './Choose'
 
 const Hero = () => {
   return (
@@ -14,6 +15,7 @@ const Hero = () => {
       <Home />
       <About /> 
       <Services />
+      <Choose/>
       <Plans />
       <Technologies/>
       <Testimonials />

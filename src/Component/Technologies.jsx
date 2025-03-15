@@ -35,24 +35,24 @@ const technologies = [
 
 const Technologies = () => {
   return (
- <section className="bg-blue-50">
-        <div className=" max-w-6xl mx-auto py-20 text-center">
-          <h2 className="text-4xl font-bold text-gray-800">Technologies We Use</h2>
-          <p className="text-gray-600 mt-2">Explore our development stack.</p>
-    
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 mt-10">
-            {technologies.map((tech, index) => (
-              <div
-                key={index}
-                className="p-6 bg-white shadow-md rounded-lg hover:scale-105 transition-transform"
-              >
-                <img src={tech.logo} alt={tech.name} className="h-16 mx-auto mb-3" />
-                <p className="text-lg font-semibold">{tech.name}</p>
-              </div>
-            ))}
-          </div>
+    <section className="bg-blue-50 py-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-800">Technologies We Use</h2>
+        <p className="text-gray-600 mt-2">Explore our development stack.</p>
+
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-10">
+          {technologies.map((tech, index) => (
+            <div
+              key={index}
+              className="p-4 bg-white shadow-md rounded-lg border border-gray-200 flex flex-col items-center justify-center hover:scale-105 transition-transform"
+            >
+              <img src={tech.logo} alt={tech.name} className="h-16 w-16 object-contain mb-3" />
+              <p className="text-lg font-semibold text-gray-700">{tech.name}</p>
+            </div>
+          ))}
         </div>
- </section>
+      </div>
+    </section>
   );
 };
 

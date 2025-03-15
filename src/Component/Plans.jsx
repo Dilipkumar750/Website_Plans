@@ -78,7 +78,7 @@ const Pricing = () => {
     };
 
     return (
-        <section className="max-w-6xl mx-auto py-20 text-center">
+        <section className="max-w-6xl mx-auto py-20 text-center" id="pricing">
             <div className="mb-12">
                 <h2 className="text-4xl font-bold text-gray-800">Our Pricing Plan</h2>
                 <p className="text-gray-600 mt-2">Choose a plan that suits your business needs.</p>
