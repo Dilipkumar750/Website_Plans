@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const testimonials = [
@@ -33,14 +33,12 @@ const testimonials = [
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Function to go to next testimonial
   const nextTestimonial = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
     );
   };
 
-  // Function to go to previous testimonial
   const prevTestimonial = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
@@ -49,14 +47,17 @@ const Testimonials = () => {
 
   return (
     <section className="max-w-4xl mx-auto py-16 px-5 text-center relative" id="testimonials">
-      <h2 className="text-4xl font-bold text-gray-800">Testimonials</h2>
-      <p className="text-gray-600 mt-2">See what our customers are saying.</p>
+      <h2 className="text-4xl font-bold text-gray-800" data-aos="fade-up">Testimonials</h2>
+      <p className="text-gray-600 mt-2" data-aos="fade-up" data-aos-delay="200">
+        See what our customers are saying.
+      </p>
 
       {/* Testimonial Card */}
       <div className="relative mt-10">
         <div
           className="p-6 bg-white shadow-md rounded-lg border transition-transform"
           key={currentIndex}
+          data-aos="zoom-in"
         >
           {/* Star Rating */}
           <div className={`flex justify-center ${testimonials[currentIndex].color} text-xl mb-3`}>
@@ -84,12 +85,14 @@ const Testimonials = () => {
         <button
           className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-3 rounded-full shadow hover:bg-gray-300"
           onClick={prevTestimonial}
+          data-aos="fade-right"
         >
           <FaArrowLeft />
         </button>
         <button
           className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-3 rounded-full shadow hover:bg-gray-300"
           onClick={nextTestimonial}
+          data-aos="fade-left"
         >
           <FaArrowRight />
         </button>
