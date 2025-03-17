@@ -1,8 +1,7 @@
 import React from "react";
-import { FaLinkedin, FaInstagram, FaWhatsapp, FaTwitter } from "react-icons/fa"; // Importing social media icons
+import { FaLinkedin, FaInstagram, FaWhatsapp, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
-  // Smooth Scroll Function
   const handleScroll = (e, targetId) => {
     e.preventDefault();
     const target = document.getElementById(targetId);
@@ -17,7 +16,6 @@ const Footer = () => {
         <p className="my-6 text-gray-500 dark:text-gray-400">
           Gessdemn Global Services - Delivering high-quality web development solutions tailored to your business needs.
         </p>
-        
         {/* Navigation Links */}
         <ul className="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
           <li onClick={(e) => handleScroll(e, "home")} className="mr-4 hover:underline md:mr-6 cursor-pointer">Home</li>
